@@ -1,2 +1,2 @@
 # LCS2-Test
-The repo is to develop scenario test cases
+The repo is to develop integration and scenario test cases
