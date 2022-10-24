@@ -31,7 +31,7 @@ def test_heartbeat():
 
 def test_heartbeatWrong():
     print ("start test heartbeat with wrong url...")
-    url = baseURL + "/heartbeat"
+    url = baseURL + "/heartbeat_wrong"
     driver.get(url)
     sleep(2)
     
