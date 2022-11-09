@@ -11,6 +11,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 
+from pytest_html_reporter import attach
+
 # This test will run when 'login_test' is called when invoking -m,
 # e.g. 'pytest test_custom_markers.py -m "login_test"'.
 # This test will run when 'empty_form_test' is called when invoking -m,
@@ -21,6 +23,7 @@ from selenium.webdriver import ActionChains
 def test_empty_login_form(browser):
     assert browser.find_element(By.ID, 'basic_email').get_attribute("value") == ""
     assert browser.find_element(By.ID, 'basic_password').get_attribute("value") == ""
+    
     browser.save_screenshot('./screenhots/test_empty_login_form.png')
 
 @pytest.mark.usefixtures("open_url")
@@ -35,7 +38,8 @@ def test_login_with_valid_credential(browser):
     assert expected_url, current_url
     # wait for entering the login page
     time.sleep(1)
-    browser.save_screenshot('./screenhots/test_login_with_valid_credential.png')
+    # browser.save_screenshot('./screenhots/test_login_with_valid_credential.png')
+    attach(browser.get_screenshot_as_png())
 
 @pytest.mark.usefixtures("open_url")
 def test_logout(browser):
