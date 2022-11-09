@@ -12,3 +12,10 @@ down:
 	docker compose down
 	@echo "Done!" 
 	@echo
+
+.PHONY: atest
+atest:
+	@echo "Running automation test..."
+	@pytest
+	@echo "Done"
+	@echo
