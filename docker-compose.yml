@@ -1,0 +1,16 @@
+# docker-compose.yml
+version: '3'
+
+services:
+
+  firefox:
+    container_name: firefox 
+    image: selenium/standalone-firefox
+    ports:
+    - 4444:4444
+
+  chrome:
+    container_name: chrome
+    image: selenium/standalone-chrome
+    ports:
+    - 4445:4444
